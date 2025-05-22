@@ -1,0 +1,31 @@
+<html>
+<meta charset="utf-8">
+    
+<head>
+     <title>Tarefas</title>
+     <link href="css/estilocad.css" rel="stylesheet">
+</head>
+<body>
+<h1><u><i>Formulário de Cadastro de Tarefas</h1></u></i>
+<form method="POST" action="inclutarefa.php" ebctype="multpart/form-data">
+<br>
+<i><label>Insira código da tarefa:</label><br>
+<input name="idtarefa"type="text"><br>
+<label>Insira a descrição da tarefa:</label><br>
+<input name="descricao" type="text"><br>
+<label>Insira tempo de execução da tarefa em horas decimal:</label><br>
+<input name="tempo" type="number" step="0.01"><br>
+<label>Insira o roteiro da tarefa:</label><br>
+<textarea name = "roteiro" rows="10" cols="50"></textarea>
+<br><br>
+<label>Entrada do Tipo:Alterar ou Incluir ? </label><br>
+<input name="opcao" type="text"><br>
+<label>Botao de Cadastrar Tarefas</label>
+<input type="submit" value="Cadastrar">
+<br>
+<label>Botao de Limpeza de Dados</label>
+<input type="reset" value="Limpar"><br><br>
+<a href="inicio.php">Voltar para início.</a></i>
+</form>
+</body>
+</html>

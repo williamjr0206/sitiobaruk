@@ -1,0 +1,10 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: small;
+    background-color: #f0f0f0;
+    text-align: left;
+    padding: 50px;
+}
+input {
+    display: block;
+}	
