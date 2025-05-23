@@ -17,12 +17,10 @@ session_start();
     echo "<a href='tarefa.html'>Cadastro de Tarefas.</a>";
     echo"<a href='programacao.php'>Cadastro de Programação de Tarefas.</a>";
     echo"<a href='usuario.php'>Cadastro de Usuários.</a>";
-    echo"<a href='consultas.php'>Consultas.</a>";
 }?>
+    <a href='consultas.php'>Consultas.</a>
     <a href="coleta_prog.php">Cadastro de Coletas de Dados.</a>
-	<a href="listagemtarefas.php">Listagem de Tarefas.</a>
-    <a href="programacaoporfunc.php">Consulta de Programação por Funcionário.</a>
-    <a href="redsenha.php">Alterar senha.</a>
+	<a href="redsenha.php">Alterar senha.</a>
 	<a href="../public/login.html">Finalizar.</a>
 </body>
 </html>
