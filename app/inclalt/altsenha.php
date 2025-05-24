@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../../config/database.php';
 
     $usuario=$_SESSION["cpf"];
     $senha=$_POST["senha"];
@@ -15,4 +15,4 @@ if($con->query($sql)){
 
  $con=null;
 ?>
-<a href="redsenha.php">Voltar</a>
+<a href="../telas/redsenha.php">Voltar</a>

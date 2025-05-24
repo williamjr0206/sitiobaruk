@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../../config/database.php';
 $data = $_POST["data"];
 $funcionario = $_SESSION["cpf"];
 $tarefa = $_POST["tarefa"];
@@ -33,4 +33,4 @@ $sql="INSERT INTO coleta(data,cpf,idtarefa,inicio,fim,comentario,temporeal)VALUE
 $con=null;
     
 ?>
-    <a href="coleta_prog.php">Voltar.</a>
+    <a href="../telas/coleta_prog.php">Voltar.</a>

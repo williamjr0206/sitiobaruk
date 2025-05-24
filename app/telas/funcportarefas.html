@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Consulta</title>
-  <link href="estilo.css" rel="stylesheet">
+    <link href="../css/estilocad.css" rel="stylesheet">
 </head>
 <body>
     <div class="login-container">
         <h1>Sítio Baruk</h1>
-        <h2>Programação por Data</h2>
-        <form action="conprog_data.php" method="post">
+        <h2>Funcionários por Tarefas:</h2>
+        <form action="../cons/confuncportarefas.php" method="post">
             <input type="date" name="data_inicio" required>
 			<br><br>
             <input type="date" name="data_final" required>
             <button type="submit">Consultar</button>
         </form>
     </div><br><br>
-    <a href="inicio.php">Voltar ao início.</a>
+    <a href="../cons/consultas.php">Voltar as Consultas</a>
 </body>
 </html>

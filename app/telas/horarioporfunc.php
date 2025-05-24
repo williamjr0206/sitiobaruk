@@ -1,17 +1,17 @@
 <?php
 session_start();
-require_once __DIR__ . '/../config/database.php';	
+require_once __DIR__ . '/../../config/database.php';	
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Consulta de Horários por Funcionário</title>
 		<meta charset="utf-8">
-		<link href="estilocad.css" rel="stylesheet">
+		<link href="../css/estilocad.css" rel="stylesheet">
 	</head>
 	</body>
 	<h1><u><i>Consulta de Horários por Funcionário:</h1></u></i>
-		<form method="POST" action="conhorarporfunc.php">
+		<form method="POST" action="../cons/conhorarporfunc.php">
 			Funcionário: 
 				<select name="cpf">
 					<option>Selecione</option>
@@ -30,7 +30,7 @@ require_once __DIR__ . '/../config/database.php';
 			Data Final:
 			<input type="date" name="data_final" required><br/><br/>
 				<input type="submit" value="Consultar"><br><br>
-			<a href="inicio.php">Voltar para início.</a>	
+			<a href="../cons/consultas.php">Voltar as Consultas</a>	
 		</form>
 	</body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../../config/database.php';
 $idtarefa = $_POST["idtarefa"];
 $descricao = $_POST["descricao"];
 $tempo = $_POST["tempo"];
@@ -28,7 +28,7 @@ else{
 		}
  
 }
-//mysqli_close($con);
+$con=null;
 
 ?>
-    <a href="tarefa.html">Voltar.</a>
+    <a href="../telas/tarefa.html">Voltar.</a>

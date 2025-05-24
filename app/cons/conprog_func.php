@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../../config/database.php';
 
 $data_inicial = $_POST["data_inicio"];
 $data_final = $_POST["data_final"];
@@ -11,7 +11,7 @@ $funcionario = $_POST["cpf"];
 	<head>
 		<title>Programação por Funcionário</title>
 		<meta charset="utf-8">
-        <link href="css/estilocad.css" rel="stylesheet">
+        <link href="../css/estilocad.css" rel="stylesheet">
 	</head>
 	</body>
 	<h1><u><i>Programação por Funcionário:</h1></u></i>
@@ -42,6 +42,6 @@ echo "</tr>";
 echo "</table>";
 ?>
 <br><br>
-<a href="programacaoporfunc.php">Voltar.</a>
+<a href="../telas/programacaoporfunc.php">Voltar.</a>
 </body>
 </html>

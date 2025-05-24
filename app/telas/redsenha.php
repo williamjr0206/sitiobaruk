@@ -9,11 +9,11 @@ session_start();
 	<head>
 		<title>Redefinir Senha</title>
 		<meta charset="utf-8">
-		<link href="estilocad.css" rel="stylesheet">
+		<link href="../css/estilocad.css" rel="stylesheet">
 	</head>
 	<body>
 	<h1><u><i>Redefinir Senha:</h1></u></i>
-		<form method="POST" action="altsenha.php">
+		<form method="POST" action="../inclalt/altsenha.php">
 			Usuário: <?php echo $_SESSION["nome"]; ?><br><br>
             <label for="senha">Entre com a nova Senha:</label><br>
             <input type="password" name="senha" required><br><br>

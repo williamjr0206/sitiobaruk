@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../../config/database.php';
 $data = $_POST["data"];
 $funcionario = $_POST["funcionario"];
 $tarefa = $_POST["tarefa"];
@@ -18,4 +18,4 @@ $sql="INSERT INTO programacao(data,cpf,idtarefa,observacao,flag) VALUES ('$data'
 //mysqli_close($con);
 
 ?>
-    <a href="programacao.php">Voltar.</a>
+    <a href="../telas/programacao.php">Voltar.</a>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../../config/database.php';
 
 ?>
 <!DOCTYPE html>
@@ -8,11 +8,11 @@ require_once __DIR__ . '/../config/database.php';
 	<head>
 		<title>Usuários</title>
 		<meta charset="utf-8">
-		<link href="estilocad.css" rel="stylesheet">
+		<link href="../css/estilocad.css" rel="stylesheet">
 	</head>
 	<body>
 	<h1><u><i>Formulário de Cadastro de Usuários:</h1></u></i>
-		<form method="POST" action="incluusuario.php">
+		<form method="POST" action="../inclalt/incluusuario.php">
 			Usuário: 
 				<select name="usuario">
 					<option>Selecione</option>

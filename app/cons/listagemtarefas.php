@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../../config/database.php';
 
 ?>
 
@@ -9,7 +9,7 @@ require_once __DIR__ . '/../config/database.php';
 	<head>
 		<title>Listagem de Tarefas</title>
 		<meta charset="utf-8">
-        <link href="estilocad.css" rel="stylesheet">
+        <link href="../css/estilocad.css" rel="stylesheet">
 	</head>
 	</body>
 	<h1><u><i>Listagem de Tarefas:</h1></u></i>
@@ -32,10 +32,10 @@ echo "</table>";
 }catch(PDOException $e){
 	echo "Erro na conexão ou consulta: ".$e->getMessage();
 }
-//mysqli_close($con);
+$con=null;
 
 ?>
 <br><br>
-<a href="inicio.php">Voltar.</a>
+<a href="../cons/consultas.php">Voltar as Consultas</a>
 </body>
 </html>

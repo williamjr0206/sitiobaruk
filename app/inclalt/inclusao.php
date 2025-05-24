@@ -1,7 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../config/database.php';
-
+require_once __DIR__ . '/../../config/database.php';
 $cpf = $_POST["cpf"];
 $nome = $_POST["nome"];
 $nascimento = $_POST["nascimento"];
@@ -33,4 +32,4 @@ else{
 //mysqli_close($con);
 
 ?>
-    <a href="funcionario.html">Voltar.</a>
+    <a href="../telas/funcionario.html">Voltar.</a>

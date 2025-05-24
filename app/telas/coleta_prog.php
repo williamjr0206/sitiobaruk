@@ -1,17 +1,17 @@
 <?php
 session_start();
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../../config/database.php';
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Coletas</title>
 		<meta charset="utf-8">
-		<link href="css/estilocad.css" rel="stylesheet">
+		<link href="../css/estilocad.css" rel="stylesheet">
 	</head>
 	</body>
 	<h1><u><i>Formulário de Cadastro de Coleta de Tarefas:</h1></u></i>
-		<form method="POST" action="inclucoleta.php">
+		<form method="POST" action="../inclalt/inclucoleta.php">
 			Data: <input type="date" name="data" required ><br><br>
 			Funcionário: <?php echo $_SESSION["nome"]."<br><br>";
             $cpf=$_SESSION["cpf"];

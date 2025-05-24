@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../../config/database.php';
 
 
 $data_inicial = $_POST["data_inicio"];
@@ -13,7 +13,7 @@ $data_final = $_POST["data_final"];
 	<head>
 		<title>Programação por Período</title>
 		<meta charset="utf-8">
-        <link href="css/estilocad.css" rel="stylesheet">    
+        <link href="../css/estilocad.css" rel="stylesheet">    
 	</head>
 	</body>
 	<h1><u><i>Programação por Período:</h1></u></i>
@@ -53,6 +53,6 @@ $con=null;
 
 ?>
 <br><br>
-<a href="programacao.html">Voltar.</a>
+<a href="../telas/programacao.html">Voltar.</a>
 </body>
 </html>
