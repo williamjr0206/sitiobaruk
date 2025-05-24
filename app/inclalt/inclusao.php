@@ -1,6 +1,10 @@
 <?php
 session_start();
+
 require_once __DIR__ . '/../../config/database.php';
+
+//Inclusão ou alteração de funcionário proveniente da tela funcionário.html
+
 $cpf = $_POST["cpf"];
 $nome = $_POST["nome"];
 $nascimento = $_POST["nascimento"];

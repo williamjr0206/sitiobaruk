@@ -1,12 +1,19 @@
 <?php
 session_start();
+
 require_once __DIR__ . '/../../config/database.php';
+
+// Inclusão de coleta de dados da produção proveniente da tela colta_prog.php
+
 $data = $_POST["data"];
 $funcionario = $_SESSION["cpf"];
 $tarefa = $_POST["tarefa"];
 $observacao = $_POST["observacao"];
 $inicio = $_POST["inicio"];
 $fim = $_POST["fim"];
+
+//Calcula o tempo real da execução da tarefa em horas decimais, descontando horário de almoço, se necessário
+
 $iniciohora = date("H",strtotime($inicio));
 $iniciominuto = date("i",strtotime($inicio));
 $t1 = ($iniciohora*60) + $iniciominuto;
@@ -18,10 +25,16 @@ $temporeal = ($t2 - $t1);
 		$temporeal = $temporeal - 60;
 	}
 $temporeal = $temporeal/60;	
+
+//Atualização da tabela de programacao, quando a tarefa for terminada
+
 $sql="update programacao set flag='2' where programacao.data between '$data' and '$data' and programacao.cpf='$funcionario' and programacao.idtarefa='$tarefa'";
 if($con->query($sql)){
   echo "Tarefa Comcluida !";
 }
+
+//Inclusão na tabela coleta
+
 $sql="INSERT INTO coleta(data,cpf,idtarefa,inicio,fim,comentario,temporeal)VALUES ('$data','$funcionario','$tarefa','$inicio','$fim','$observacao','$temporeal')";
 
     if ($con->query($sql)) {

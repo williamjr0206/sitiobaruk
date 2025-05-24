@@ -1,10 +1,13 @@
 <?php
 session_start();
+
 require_once __DIR__ . '/../../config/database.php';
 
-    $usuario=$_SESSION["cpf"];
-    $senha=$_POST["senha"];
-    $sql="UPDATE usuario SET senha='$senha' WHERE cpf='$usuario'";
+//alteração de senha de usuário proveniente da tela redsenha.php
+
+$usuario=$_SESSION["cpf"];
+$senha=$_POST["senha"];
+$sql="UPDATE usuario SET senha='$senha' WHERE cpf='$usuario'";
 if($con->query($sql)){
 	echo "Senha alterada com Sucesso";
 }
@@ -14,5 +17,6 @@ if($con->query($sql)){
 	}
 
  $con=null;
+ 
 ?>
 <a href="../telas/redsenha.php">Voltar</a>

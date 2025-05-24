@@ -1,6 +1,10 @@
 <?php
 session_start();
+
 require_once __DIR__ . '/../../config/database.php';
+
+//Inclução de programação proveniente da tela programacao.php
+
 $data = $_POST["data"];
 $funcionario = $_POST["funcionario"];
 $tarefa = $_POST["tarefa"];

@@ -1,6 +1,10 @@
 <?php
 session_start();
+
 require_once __DIR__ . '/../../config/database.php';
+
+//Inclusão ou alteração de tarefas proveniente a tela tarefa.html
+
 $idtarefa = $_POST["idtarefa"];
 $descricao = $_POST["descricao"];
 $tempo = $_POST["tempo"];

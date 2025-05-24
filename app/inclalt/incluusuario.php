@@ -1,6 +1,9 @@
 <?php
 session_start();
+
 require_once __DIR__ . '/../../config/database.php';
+
+//Inclusão de usuário proveniente da tela usuario.php
 
 $usuario = $_POST["usuario"];
 $senha = $_POST["senha"];

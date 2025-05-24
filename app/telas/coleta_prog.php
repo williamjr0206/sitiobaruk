@@ -1,6 +1,9 @@
 <?php
 session_start();
 require_once __DIR__ . '/../../config/database.php';
+
+//Tela de coleta de dados, através das tarefas da programação para funcionário logado
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,6 +25,8 @@ require_once __DIR__ . '/../../config/database.php';
 					<option value="">Selecione</option>
 					<optgroup label="Tarefa de Hoje">
 					<?php
+					// Seleção de tarefas para a data de hoje, para funcionário logado
+
 						$result_niveis_acessos =$con->prepare( "SELECT programacao.idtarefa,tarefa.descricao,funcionario.cpf from programacao inner join tarefa on programacao.idtarefa=tarefa.idtarefa inner join funcionario on programacao.cpf=funcionario.cpf where programacao.cpf=$cpf and programacao.data between '$datainicial'and'$datainicial' and programacao.flag=1");
 						$result_niveis_acessos->execute();
 						$resultado_niveis_acesso = $result_niveis_acessos->fetchAll(PDO::FETCH_ASSOC);
@@ -33,6 +38,8 @@ require_once __DIR__ . '/../../config/database.php';
 					</optgroup>
 					<optgroup label="Nova Tarefa">
 					<?php
+					// Seleção de alguma outra tarefa fora da programação
+
 						$result_niveis_acessos =$con->prepare( "SELECT * from tarefa order by tarefa.descricao");
 						$result_niveis_acessos->execute();
 						$resultado_niveis_acesso = $result_niveis_acessos->fetchAll(PDO::FETCH_ASSOC);

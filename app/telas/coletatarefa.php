@@ -1,5 +1,8 @@
 <?php
 require_once __DIR__ . '/../../config/database.php';
+
+//Tela substituida pela tela coleta_prog.php
+
 ?>
 <!DOCTYPE html>
 <html>
