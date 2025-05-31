@@ -10,14 +10,16 @@ $datafinal = $_POST["data_final"];
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Listagem de Funcionários</title>
+		<title>Horas Trabalhadas por Período / Funcionários</title>
 		<meta charset="utf-8">
         <link href="../css/estilocad.css" rel="stylesheet">
 	</head>
 	</body>
-	<h1><u><i>Horas Totais por Período por Funcionários:</h1></u></i>
+	<h1><u><i>Horas Trabalhadas por Período / Funcionários:</h1></u></i>
     <?php
-    echo"Período de: ".$datainicial." a ".$datafinal;
+	$datai=new DateTime($datainicial);
+	$dataf=new DateTime($datafinal);
+    echo"Período de: ".$datai->format("d/m/Y")." a ".$dataf->format("d/m/Y");
     echo"<br><br>";
 try{
 $sql="SELECT funcionario.nome, SUM(coleta.temporeal) from coleta inner join funcionario on coleta.cpf=funcionario.cpf where coleta.data between '$datainicial' and '$datafinal' GROUP BY funcionario.nome";

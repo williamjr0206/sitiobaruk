@@ -19,7 +19,7 @@ session_start();
 	        echo"<a href='../cons/listagemtarefas.php'>Listagem de Tarefas.</a>";
             echo"<a href='../telas/programacaoporfunc.php'>Programação por Funcionário.</a>";
 	        echo"<a href='../cons/listagemfunc.php'>Listagem de Funcionários.</a>";
-            echo"<a href='../telas/totaisdehorasporfunc.html'>Horas por Funcionários.</a>";            
+            echo"<a href='../telas/totaisdehorasporfunc.html'>Horas Trabalhadas por Período / Funcionários.</a>";            
     }
     if($_SESSION["permissao"]==2){
         echo"<a href='../cons/listagemtarefas.php'>Listagem de Tarefas.</a>";
