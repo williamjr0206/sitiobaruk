@@ -11,7 +11,7 @@ session_start();
 </head>
 <body>
     <?php echo "<h1>Consultas:  ". $_SESSION["nome"]."</h1>";?> 
-    <p>Escolha uma das opções abaixo para navegar:</p>
+    <p>Escolha uma das opções abaixo:</p>
     <?php if($_SESSION["permissao"]==1){
             echo "<a href='../telas/funcportarefas.html'>Funcionários por tarefas.</a>";
             echo"<a href='../telas/programacao.html'>Programação por Data.</a>";
@@ -19,7 +19,7 @@ session_start();
 	        echo"<a href='../cons/listagemtarefas.php'>Listagem de Tarefas.</a>";
             echo"<a href='../telas/programacaoporfunc.php'>Programação por Funcionário.</a>";
 	        echo"<a href='../cons/listagemfunc.php'>Listagem de Funcionários.</a>";
-            echo"<a href='../telas/totaisdehorasporfunc.html'>Horas Trabalhadas por Período / Funcionários.</a>";            
+            echo"<a href='../telas/totaisdehorasporfunc.html'>Horas Trabalhadas por Período.</a>";            
     }
     if($_SESSION["permissao"]==2){
         echo"<a href='../cons/listagemtarefas.php'>Listagem de Tarefas.</a>";
