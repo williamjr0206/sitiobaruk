@@ -32,7 +32,7 @@ echo "<td>".$row["data"]."</td>";
 echo "<td>".$row["nome"]."</td>";
 echo "<td>".$row["descricao"]."</td>";
 echo "<td>".$row["tempo"]."</td>";
-echo "<td>".$row["temporeal"]."</td>";
+echo "<td>".round($row["temporeal"],2)."</td>";
 echo "<td>".$row["comentario"]."</td>";
 echo "</tr>";
 }
