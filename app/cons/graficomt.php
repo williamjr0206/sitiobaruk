@@ -9,17 +9,17 @@ $datafinal = $_POST["data_final"];
 
 
 // Consulta SQL
-$sql = "SELECT funcionario.nome, SUM(coleta.temporeal) from coleta inner join funcionario on coleta.cpf=funcionario.cpf where coleta.data between '$datainicial' and '$datafinal' GROUP BY funcionario.nome order by funcionario.nome";
+$sql = "SELECT tarefa.descricao, AVG(coleta.temporeal) from coleta inner join tarefa on coleta.idtarefa=tarefa.idtarefa where coleta.data between '$datainicial' and '$datafinal' GROUP BY tarefa.descricao order by tarefa.descricao";
 $res = $con->query($sql);
 
 // Preparar os dados para o gráfico
-$nome = [];
+$descricao = [];
 $tempo = [];
 
 
 while($row=$res->fetch(PDO::FETCH_ASSOC)){
-        $nome[] = $row['nome'];
-        $tempo[] = $row['SUM(coleta.temporeal)'];
+        $descricao[] = $row['descricao'];
+        $tempo[] = $row['AVG(coleta.temporeal)'];
     }
 
 
@@ -35,25 +35,46 @@ while($row=$res->fetch(PDO::FETCH_ASSOC)){
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h1>Consulta de Horas Trabalhadas por Período.</h1>
+    <h1>Consulta das Médias de Tempos de Execução de Tarefas.</h1>
+    <h3>Tempos Médios:</h3>
 <div style="width:30%;float:left">
     <?php
 try{
-$sql="SELECT funcionario.nome, SUM(coleta.temporeal) from coleta inner join funcionario on coleta.cpf=funcionario.cpf where coleta.data between '$datainicial' and '$datafinal' GROUP BY funcionario.nome order by funcionario.nome";
-$res=$con->query($sql);
-echo "<table border='1'>";
-echo "<th>Nome</th>";
-echo "<th>Tempo em Horas</th>";
-while($row=$res->fetch(PDO::FETCH_ASSOC)){//mysqli_fetch_array($res)){
-echo "<tr>";
-echo "<td>".$row["nome"]."</td>";
-echo "<td>".round($row["SUM(coleta.temporeal)"],2)."</td>";
-echo "</tr>";
-}
-echo "</table>";
-}catch(PDOException $e){
-	echo "Erro na conexão ou consulta: ".$e->getMessage();
-}
+    $sql = "SELECT tarefa.descricao, AVG(coleta.temporeal) from coleta inner join tarefa on coleta.idtarefa=tarefa.idtarefa where coleta.data between '$datainicial' and '$datafinal' GROUP BY tarefa.descricao order by tarefa.descricao";
+    $res=$con->query($sql);
+    echo "<table border='1'>";
+    echo "<th>Tarefa</th>";
+    echo "<th>Tempo em Horas</th>";
+    while($row=$res->fetch(PDO::FETCH_ASSOC)){//mysqli_fetch_array($res)){
+    echo "<tr>";
+    echo "<td>".$row["descricao"]."</td>";
+    echo "<td>".round($row["AVG(coleta.temporeal)"],2)."</td>";
+    echo "</tr>";
+    }
+    echo "</table>";
+    }catch(PDOException $e){
+        echo "Erro na conexão ou consulta: ".$e->getMessage();
+    }
+    echo "<br><br>";
+    echo "<h3>Tempos Teóricos:</h3>";
+    //echo "<br><br>";
+try{
+    $sql = "SELECT * from tarefa order by descricao";
+    $res=$con->query($sql);
+    echo "<table border='1'>";
+    echo "<th>Tarefa</th>";
+    echo "<th>Tempo em Horas</th>";
+    while($row=$res->fetch(PDO::FETCH_ASSOC)){//mysqli_fetch_array($res)){
+    echo "<tr>";
+    echo "<td>".$row["descricao"]."</td>";
+    echo "<td>".round($row["tempo"],2)."</td>";
+    echo "</tr>";
+    }
+    echo "</table>";
+    }catch(PDOException $e){
+        echo "Erro na conexão ou consulta: ".$e->getMessage();
+    }
+        
 $con=null;
 ?>
 
@@ -71,7 +92,7 @@ $con=null;
 
     <script>
         // Dados do PHP para o JavaScript
-        const categorias = <?php echo json_encode($nome); ?>;
+        const categorias = <?php echo json_encode($descricao); ?>;
         const valores = <?php echo json_encode($tempo); ?>;
 
         // Configuração do gráfico
@@ -97,7 +118,7 @@ $con=null;
             }
         });
     </script>
-    <a href="../telas/totaisdehorasporfunc.html">Voltar</a>
+    <a href="../telas/mediatarefas.html">Voltar</a>
 </div>    
 </body>
 </html>

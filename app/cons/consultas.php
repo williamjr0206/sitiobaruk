@@ -15,11 +15,12 @@ session_start();
     <?php if($_SESSION["permissao"]==1){
             echo "<a href='../telas/funcportarefas.html'>Funcionários por tarefas.</a>";
             echo"<a href='../telas/programacao.html'>Programação por Data.</a>";
-            echo"<a href='../telas/horarioporfunc.php'>Horários por Funcionários</a>";
-	        echo"<a href='../cons/listagemtarefas.php'>Listagem de Tarefas.</a>";
+            echo"<a href='../telas/horarioporfunc.php'>Horários de Funcionários</a>";
+	        echo"<a href='../cons/listagemtarefasp.php'>Listagem de Tarefas.</a>";
             echo"<a href='../telas/programacaoporfunc.php'>Programação por Funcionário.</a>";
 	        echo"<a href='../cons/listagemfunc.php'>Listagem de Funcionários.</a>";
-            echo"<a href='../telas/totaisdehorasporfunc.html'>Horas Trabalhadas por Período.</a>";            
+            echo"<a href='../telas/totaisdehorasporfunc.html'>Horas Trabalhadas por Período.</a>";
+            echo"<a href='../telas/mediatarefas.html'>Média dos Tempos de Execução das Tarefas.</a>";            
     }
     if($_SESSION["permissao"]==2){
         echo"<a href='../cons/listagemtarefas.php'>Listagem de Tarefas.</a>";
