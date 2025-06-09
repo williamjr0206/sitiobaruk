@@ -15,7 +15,7 @@ require_once __DIR__ . '/../../config/database.php';
 	<h1><u><i>Listagem de Funcionários:</h1></u></i>
 <?php
 try{
-$sql="SELECT * from funcionario";
+$sql="SELECT * from funcionario order by funcionario.nome";
 $res=$con->query($sql);//mysqli_query($con,$sql);
 echo "<table border='1'>";
 echo "<th>Código</th>";

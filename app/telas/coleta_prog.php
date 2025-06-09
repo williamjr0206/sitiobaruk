@@ -58,7 +58,8 @@ require_once __DIR__ . '/../../config/database.php';
             Fim da Tarefa:
                 <input type="time" name="fim" required><br/><br/> 			
 				<input type="submit" value="Cadastrar" id="cadastrar"><br><br>
-			<a href="inicio.php">Voltar para início.</a>	
+			<a href="producao.php">Cadastrar Produção.</a><br><br><br>		
+			<a href="inicio.php">Voltar para início.</a>
 		</form>
 	</body>
 </html>
