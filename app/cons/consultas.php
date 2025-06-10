@@ -20,7 +20,9 @@ session_start();
             echo"<a href='../telas/programacaoporfunc.php'>Programação por Funcionário.</a>";
 	        echo"<a href='../cons/listagemfunc.php'>Listagem de Funcionários.</a>";
             echo"<a href='../telas/totaisdehorasporfunc.html'>Horas Trabalhadas por Período.</a>";
-            echo"<a href='../telas/mediatarefas.html'>Média dos Tempos de Execução das Tarefas.</a>";            
+            echo"<a href='../telas/mediatarefas.html'>Média dos Tempos de Execução das Tarefas.</a>";
+            echo"<a href='../telas/producaograficos.html'>Produção por Funcionário.</a>";
+            echo"<a href='../telas/producaoporproduto.html'>Produção por Produto.</a>";            
     }
     if($_SESSION["permissao"]==2){
         echo"<a href='../cons/listagemtarefas.php'>Listagem de Tarefas.</a>";
