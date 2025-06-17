@@ -13,11 +13,7 @@ session_start();
     <?php echo "<h1>Bem-vindo ao Sítio Baruk:  ". $_SESSION["nome"]."</h1>";?> 
     <p>Escolha uma das opções abaixo para navegar:</p>
     <?php if($_SESSION["permissao"]==1){
-    echo "<a href='funcionario.html'>Cadastro de Funcionário.</a>";    
-    echo "<a href='tarefa.html'>Cadastro de Tarefas.</a>";
-    echo "<a href='produtos.html'>Cadastro de Produtos.</a>";
-    echo"<a href='programacao.php'>Cadastro de Programação de Tarefas.</a>";
-    echo"<a href='usuario.php'>Cadastro de Usuários.</a>";
+    echo "<a href='../cons/cadastros.php'>Cadastros.</a>";
 }?>
     <a href='../cons/consultas.php'>Consultas.</a>
     <a href="coleta_prog.php">Cadastro de Coletas de Dados.</a>
