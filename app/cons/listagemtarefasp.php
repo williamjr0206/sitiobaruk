@@ -38,6 +38,6 @@ $con=null;
 
 ?>
 <br><br>
-<a href="../cons/consultas.php">Voltar as Consultas</a>
+<a href="../cons/listagens.php">Voltar as Listagens</a>
 </body>
 </html>

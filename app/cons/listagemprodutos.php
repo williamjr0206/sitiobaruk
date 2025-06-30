@@ -8,25 +8,27 @@ require_once __DIR__ . '/../../config/database.php';
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Listagem de Funcionários</title>
+		<title>Listagem de Produtos</title>
 		<meta charset="utf-8">
         <link href="../css/estilocad.css" rel="stylesheet">
 	</head>
 	</body>
-	<h1><u><i>Listagem de Funcionários:</h1></u></i>
+	<h1><u><i>Listagem de Produtos:</h1></u></i>
 <?php
 try{
-$sql="SELECT * from funcionario order by funcionario.nome";
-$res=$con->query($sql);//mysqli_query($con,$sql);
+$sql="SELECT * from produto order by produto.descricao";
+$res=$con->query($sql);
 echo "<table border='1'>";
 echo "<th>Código</th>";
-echo "<th>Nome</th>";
-echo "<th>Data de Nascimento</th>";
-while($row=$res->fetch(PDO::FETCH_ASSOC)){//mysqli_fetch_array($res)){
+echo "<th>Produto</th>";
+echo "<th>Preço</th>";
+echo "<th>Unidade</th>";
+while($row=$res->fetch(PDO::FETCH_ASSOC)){
 echo "<tr>";
-echo "<td>".$row["cpf"]."</td>";
-echo "<td>".$row["nome"]."</td>";
-echo "<td>".$row["data_nascimento"]."</td>";
+echo "<td>".$row["idproduto"]."</td>";
+echo "<td>".$row["descricao"]."</td>";
+echo "<td style='text-align:right;'>"."R$ ".number_format($row["preco"],2,',','.')."</td>";
+echo "<td>".$row["unidade"]."</td>";
 echo "</tr>";
 }
 echo "</table>";

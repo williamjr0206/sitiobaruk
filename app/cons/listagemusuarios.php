@@ -8,25 +8,27 @@ require_once __DIR__ . '/../../config/database.php';
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Listagem de Funcionários</title>
+		<title>Listagem de Usuários</title>
 		<meta charset="utf-8">
         <link href="../css/estilocad.css" rel="stylesheet">
 	</head>
 	</body>
-	<h1><u><i>Listagem de Funcionários:</h1></u></i>
+	<h1><u><i>Listagem de Usuários:</h1></u></i>
 <?php
 try{
-$sql="SELECT * from funcionario order by funcionario.nome";
-$res=$con->query($sql);//mysqli_query($con,$sql);
+$sql="SELECT usuario.cpf, funcionario.nome, permissao.descricao, usuario.senha from usuario inner join funcionario on usuario.cpf=funcionario.cpf inner join permissao on usuario.id_permissao=permissao.idpermissao order by funcionario.nome";
+$res=$con->query($sql);
 echo "<table border='1'>";
 echo "<th>Código</th>";
 echo "<th>Nome</th>";
-echo "<th>Data de Nascimento</th>";
-while($row=$res->fetch(PDO::FETCH_ASSOC)){//mysqli_fetch_array($res)){
+echo "<th>Permissão</th>";
+echo "<th>Senha</th>";
+while($row=$res->fetch(PDO::FETCH_ASSOC)){
 echo "<tr>";
 echo "<td>".$row["cpf"]."</td>";
 echo "<td>".$row["nome"]."</td>";
-echo "<td>".$row["data_nascimento"]."</td>";
+echo "<td>".$row["descricao"]."</td>";
+echo "<td>".$row["senha"]."</td>";
 echo "</tr>";
 }
 echo "</table>";
