@@ -10,7 +10,7 @@ session_start();
     <link href="../css/inicio.css" rel="stylesheet">
 </head>
 <body>
-    <?php echo "<h1>Consultas:  ". $_SESSION["nome"]."</h1>";?> 
+    <?php echo "<h1>Listagens:  ". $_SESSION["nome"]."</h1>";?> 
     <p>Escolha uma das opções abaixo:</p>
     <?php if($_SESSION["permissao"]==1){
 	        echo"<a href='../cons/listagemtarefasp.php'>Listagem de Tarefas.</a>";
