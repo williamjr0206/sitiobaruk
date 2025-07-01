@@ -17,6 +17,7 @@ session_start();
 	        echo"<a href='../cons/listagemfunc.php'>Listagem de Funcionários.</a>";
             echo"<a href='../cons/listagemusuarios.php'>Listagem de Usuários.</a>";
             echo"<a href='../cons/listagemprodutos.php'>Listagem de Produtos.</a>";
+            echo "<a href='../cons/listagemclientes.php'>Listagem de Clientes.</a>";
     }
     ?>
 	<a href="../cons/consultas.php">Voltar as Consultas.</a>
