@@ -14,11 +14,14 @@ $res = $con->query($sql);
 // Preparar os dados para o gráfico
 $produto = [];
 $quantidade = [];
+$totalproduzido=[];
+$totalproduzido=0;
 
 
 while($row=$res->fetch(PDO::FETCH_ASSOC)){
         $produto[] = $row['descricao'];
         $quantidade[] = $row['SUM(producao.quantidade)'];
+        $totalproduzido=$totalproduzido+$row['SUM(producao.quantidade)'];
     }
 
 
@@ -77,5 +80,9 @@ while($row=$res->fetch(PDO::FETCH_ASSOC)){
         });
     </script>
     <br><br>
+<?php
+echo "Total Produzido no Período é ".number_format($totalproduzido,2,',','.')." gramas";
+?> 
+<br><br>   
 <a href="../telas/producaoporproduto.html">Voltar</a>    
 </div>
