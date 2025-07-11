@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once __DIR__ . '/../../config/database.php';
+?>
+
 <html>
 <meta charset="utf-8">
     
@@ -18,9 +23,23 @@
 <label>Insira a unidade do produto:</label><br>
 <input name="unidade" type="text">
 <br><br>
+Família: 
+				<select name="familia">
+					<option>Selecione</option>
+					<?php
+						$result_niveis_acessos =$con->prepare( "SELECT * FROM familia order by descricao");
+						$result_niveis_acessos->execute();
+						$resultado_niveis_acesso = $result_niveis_acessos->fetchAll(PDO::FETCH_ASSOC);
+						foreach($resultado_niveis_acesso as $row_niveis_acessos){ ?>
+							<option value="<?php echo $row_niveis_acessos['idstatus']; ?>"><?php echo $row_niveis_acessos['descricao']; ?></option> <?php
+						}
+						
+					?>
+					</select><br><br>
+
 <label>Entrada do Tipo:Alterar ou Incluir ? </label><br>
 <input name="opcao" type="text"><br>
-<label>Botao de Cadastrar Tarefas</label>
+<label>Botao de Cadastrar Produto</label>
 <input type="submit" value="Cadastrar">
 <br>
 <label>Botao de Limpeza de Dados</label>

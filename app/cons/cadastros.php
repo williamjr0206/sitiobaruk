@@ -15,7 +15,8 @@ session_start();
     <?php if($_SESSION["permissao"]==1){
     echo "<a href='../telas/funcionario.html'>Funcionário.</a>";    
     echo "<a href='../telas/tarefa.html'>Tarefas.</a>";
-    echo "<a href='../telas/produtos.html'>Produtos.</a>";
+    echo "<a href='../telas/familia.html'>Família de Produtos.</a>";
+    echo "<a href='../telas/produtos.php'>Produtos.</a>";
     echo"<a href='../telas/programacao.php'>Programação de Tarefas.</a>";
     echo"<a href='../telas/cliente.html'>Clientes.</a>";
     echo"<a href='../telas/venda.php'>Vendas.</a>";
