@@ -9,11 +9,17 @@
 <form method="POST" action="../inclalt/inclucliente.php" ebctype="multpart/form-data">
 <br>
 <i><label>Insira o Código do Cliente:</label><br>
-<input name="cnpj"type="text"><br><br>
+<input name="cnpj"type="text" required><br><br>
 <label>Insira razão social:</label><br>
 <input name="razao" type="text"><br><br>
-<label>Entrada do Tipo:Alterar ou Incluir ? </label><br>
-<input name="opcao" type="text"><br><br>
+<label>Entrada do Tipo: </label><br>
+<label>
+	<input name="opcao" type="radio" value="opcao1">Incluir</label><br>
+<label>
+	<input name="opcao" type="radio" value="opcao2">Alterar</label><br>
+<label>
+	<input name="opcao" type="radio" value="opcao3">Excluir</label>
+<br><br>
 <label>Botao de Cadastrar Clientes</label>
 <input type="submit" value="Cadastrar">
 <br><br>

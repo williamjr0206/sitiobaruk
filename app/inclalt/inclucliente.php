@@ -8,28 +8,42 @@ require_once __DIR__ . '/../../config/database.php';
 $cnpj = $_POST["cnpj"];
 $razao = $_POST["razao"];
 $opcao = $_POST["opcao"];
-if ($opcao=="alterar"){
-$sql="UPDATE cliente SET razao='$razao' WHERE idcliente='$cnpj'";
-if($con->query($sql)){
-	echo "Registro alterado com sucesso";
-}
-    else{
-		echo " Registro não alterado !!!";
+if(isset($_POST["opcao"])){
+	if ($opcao=="opcao2"){
+		$sql="UPDATE cliente SET razao='$razao' WHERE idcliente='$cnpj'";
+			if($con->query($sql)){
+				echo "Registro alterado com sucesso";
+			}
+    		else{
+				echo " Registro não alterado !!!";
 
+			}
 	}
-	
+	elseif($opcao == "opcao1"){
+		$sql="INSERT INTO cliente(idcliente,razao) VALUES ('$cnpj','$razao')";
+    	if ($con->query($sql)) {
+       		echo "Novo registro inserido com sucesso !";
+		}
+    	else{
+			echo " Registro não inserido !!!";
+		}
+	}	
+	elseif($opcao == "opcao3"){
+		$sql="DELETE FROM cliente WHERE idcliente='$cnpj'";
+			if($con->query($sql)){
+			echo "Registro excluído com sucesso !";
+		}
+		else{
+			echo "Registro não excluído !";
+		}
+	}
 }
+
 else{
-	$sql="INSERT INTO cliente(idcliente,razao) VALUES ('$cnpj','$razao')";
-    if ($con->query($sql)) {
-       echo "Novo registro inserido com sucesso !";
-	}
-    else{
-		echo " Registro não inserido !!!";
+	echo "Escolha uma opção (Incluir/Alterar/Excluir)";}
 
-	}
-	   
-}
+
+
 $con=null;
 
 ?>
