@@ -38,7 +38,13 @@ Família:
 					</select><br><br>
 
 <label>Entrada do Tipo:Alterar ou Incluir ? </label><br>
-<input name="opcao" type="text"><br>
+<label>
+	<input name="opcao" type="radio" value="opcao1">Incluir</label><br>
+<label>
+	<input name="opcao" type="radio" value="opcao2">Alterar</label><br>
+<label>
+	<input name="opcao" type="radio" value="opcao3">Excluir</label>
+<br><br>
 <label>Botao de Cadastrar Produto</label>
 <input type="submit" value="Cadastrar">
 <br>

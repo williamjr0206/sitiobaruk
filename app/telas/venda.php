@@ -31,7 +31,7 @@ require_once __DIR__ . '/../../config/database.php';
 				<select name="produto">
 					<option>Selecione</option>
 					<?php
-						$result_niveis_acessos =$con->prepare( "SELECT * FROM produto order by descricao");
+						$result_niveis_acessos =$con->prepare( "SELECT * FROM produto where idstatus = 1 order by descricao");
 						$result_niveis_acessos->execute();
 						$resultado_niveis_acesso = $result_niveis_acessos->fetchAll(PDO::FETCH_ASSOC);
 						foreach($resultado_niveis_acesso as $row_niveis_acessos){ ?>

@@ -16,19 +16,21 @@ require_once __DIR__ . '/../../config/database.php';
 	<h1><u><i>Listagem de Produtos:</h1></u></i>
 <?php
 try{
-$sql="SELECT * from produto order by produto.descricao";
+$sql="SELECT idproduto,produto.descricao,preco,unidade,familia.descricao as 'familia' from produto inner join familia on produto.idstatus = familia.idstatus order by familia.descricao";
 $res=$con->query($sql);
 echo "<table border='1'>";
 echo "<th>Código</th>";
 echo "<th>Produto</th>";
 echo "<th>Preço</th>";
 echo "<th>Unidade</th>";
+echo "<th>Familia</th>";
 while($row=$res->fetch(PDO::FETCH_ASSOC)){
 echo "<tr>";
 echo "<td>".$row["idproduto"]."</td>";
 echo "<td>".$row["descricao"]."</td>";
 echo "<td style='text-align:right;'>"."R$ ".number_format($row["preco"],2,',','.')."</td>";
 echo "<td>".$row["unidade"]."</td>";
+echo "<td>".$row["familia"]."</td>";
 echo "</tr>";
 }
 echo "</table>";
