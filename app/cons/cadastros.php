@@ -16,6 +16,8 @@ session_start();
     echo "<a href='../telas/funcionario.html'>Funcionário.</a>";    
     echo "<a href='../telas/tarefa.html'>Tarefas.</a>";
     echo "<a href='../telas/familia.html'>Família de Produtos.</a>";
+    echo "<a href='../telas/centrodecusto.html'>Centro de Custos.</a>";
+    echo"<a href='../telas/custos.php'>Custos e Despesas.</a>";
     echo "<a href='../telas/produtos.php'>Produtos.</a>";
     echo"<a href='../telas/programacao.php'>Programação de Tarefas.</a>";
     echo"<a href='../telas/cliente.html'>Clientes.</a>";

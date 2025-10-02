@@ -1,0 +1,31 @@
+<html>
+<meta charset="utf-8">
+<head>
+<title>Clientes</title>
+<link href="../css/estilocad.css" rel="stylesheet">
+</head>
+<body>
+	<h1><u><i>Formulário de Cadastro de Centro de Custos:</h1></u></i>
+<form method="POST" action="../inclalt/inclucentro.php" ebctype="multpart/form-data">
+<br>
+<i><label>Insira o Código do Centro de Custo:</label><br>
+<input name="centrodecusto"type="text" required><br><br>
+<label>Insira a descrição do Custo:</label><br>
+<input name="descricao" type="text"><br><br>
+<label>Entrada do Tipo: </label><br>
+<label>
+	<input name="opcao" type="radio" value="opcao1">Incluir</label><br>
+<label>
+	<input name="opcao" type="radio" value="opcao2">Alterar</label><br>
+<label>
+	<input name="opcao" type="radio" value="opcao3">Excluir</label>
+<br><br>
+<label>Botao de Cadastrar Centro de Custo</label>
+<input type="submit" value="Cadastrar">
+<br><br>
+<label>Botao de Limpeza de Dados</label>
+<input type="reset" value="Limpar"></p><br><br>
+<a href="inicio.php">Voltar para início.</a></i>
+</form>
+</body>
+</html>
