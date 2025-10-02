@@ -26,7 +26,7 @@ require_once __DIR__ . '/../../config/database.php';
 						
 					?>
 				</select><br><br>
-			Valor em R$:<input type="number" name="valor" step="0.1" required><br><br>                
+			Valor em R$:<input type="number" name="valor" step="0.01" required><br><br>                
 			<input type="submit" value="Cadastrar"><br><br>
 <a href="inicio.php">Voltar para início.</a><br><br><br>
 <a href="custos.html">Ver Análise de Custos.</a><br><br><br>
