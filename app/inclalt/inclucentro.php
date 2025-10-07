@@ -7,6 +7,7 @@ require_once __DIR__ . '/../../config/database.php';
 
 $centrodecusto = $_POST["centrodecusto"];
 $descricao = $_POST["descricao"];
+$tipocusto = $_POST["custo"];
 $opcao = $_POST["opcao"];
 if(isset($_POST["opcao"])){
 	if ($opcao=="opcao2"){
@@ -20,7 +21,7 @@ if(isset($_POST["opcao"])){
 			}
 	}
 	elseif($opcao == "opcao1"){
-		$sql="INSERT INTO centrodecusto(idcentro,descricao) VALUES ('$centrodecusto','$descricao')";
+		$sql="INSERT INTO centrodecusto(idcentro,descricao,tipodecusto) VALUES ('$centrodecusto','$descricao','$tipocusto')";
     	if ($con->query($sql)) {
        		echo "Novo registro inserido com sucesso !";
 		}
