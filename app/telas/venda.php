@@ -12,7 +12,6 @@ require_once __DIR__ . '/../../config/database.php';
 	</body>
 	<h1><u><i>Formulário de Cadastro de Vendas:</h1></u></i>
 		<form method="POST" action="../inclalt/incluvendas.php">
-            Documento: <input type="text" name="documento"><br><br>
 			Data: <input type="date" name="data" ><br><br>
 			Cliente: 
 				<select name="cliente">
