@@ -9,7 +9,16 @@ $data = $_POST["data"];
 $cliente=$_POST["cliente"];
 $produto = $_POST["produto"];
 $quantidade = $_POST["quantidade"];
-$sql="INSERT INTO venda(data,idcliente,idproduto,quantidade) VALUES ('$data','$cliente','$produto','$quantidade')";
+$desconto = $_POST["desconto"];
+$stmt =$con->prepare("SELECT produto.preco from produto where produto.idproduto='$produto'");
+$stmt->execute();
+$user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+foreach($user as $usuario){
+$preco = $usuario["preco"];
+}
+echo "$preco";
+$preconeg = $preco - ($preco*$desconto/100);
+$sql="INSERT INTO venda(data,idcliente,idproduto,quantidade,preconeg) VALUES ('$data','$cliente','$produto','$quantidade','$preconeg')";
     if ($con->query($sql)) {
        echo "Novo registro inserido com sucesso !";
 	}

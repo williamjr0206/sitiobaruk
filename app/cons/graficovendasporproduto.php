@@ -8,7 +8,7 @@ $datainicial = $_POST["data_inicio"];
 $datafinal = $_POST["data_final"];
 
 // Consulta SQL
-$sql = "SELECT produto.descricao, SUM(venda.quantidade*produto.preco) from venda inner join produto on venda.idproduto=produto.idproduto where venda.data between '$datainicial' and '$datafinal' group by produto.descricao order by SUM(venda.quantidade*produto.preco) desc";
+$sql = "SELECT produto.descricao, SUM(venda.quantidade*venda.preconeg) from venda inner join produto on venda.idproduto=produto.idproduto where venda.data between '$datainicial' and '$datafinal' group by produto.descricao order by SUM(venda.quantidade*produto.preco) desc";
 $res = $con->query($sql);
 
 // Preparar os dados para o gráfico
@@ -20,8 +20,8 @@ $totalfaturado=0;
 
 while($row=$res->fetch(PDO::FETCH_ASSOC)){
         $produto[] = $row['descricao'];
-        $faturamento[] = $row['SUM(venda.quantidade*produto.preco)'];
-        $totalfaturado=$totalfaturado+$row['SUM(venda.quantidade*produto.preco)'];
+        $faturamento[] = $row['SUM(venda.quantidade*venda.preconeg)'];
+        $totalfaturado=$totalfaturado+$row['SUM(venda.quantidade*venda.preconeg)'];
     }
 
 
@@ -84,7 +84,7 @@ while($row=$res->fetch(PDO::FETCH_ASSOC)){
 </div>
 <div style="width:50%;float:left">
     <?php
-    $sql="SELECT venda.documento, venda.data, cliente.razao, produto.descricao, (venda.quantidade*produto.preco) from venda inner join cliente on venda.idcliente=cliente.idcliente inner join produto on venda.idproduto=produto.idproduto where venda.data between '$datainicial' and '$datafinal' order by produto.descricao";
+    $sql="SELECT venda.documento, venda.data, cliente.razao, produto.descricao, (venda.quantidade*venda.preconeg) from venda inner join cliente on venda.idcliente=cliente.idcliente inner join produto on venda.idproduto=produto.idproduto where venda.data between '$datainicial' and '$datafinal' order by produto.descricao";
     $res=$con->query($sql);
 echo "<table border='1'>";
 echo "<th>Documento</th>";
@@ -98,7 +98,7 @@ echo "<td style='text-align:right;'>".$row["documento"]."</td>";
 echo "<td>".$row["data"]."</td>";
 echo "<td>".$row["razao"]."</td>";
 echo "<td>".$row["descricao"]."</td>";
-echo "<td style='text-align:right;'>"."R$ ".number_format($row["(venda.quantidade*produto.preco)"],2,',','.')."</td>";
+echo "<td style='text-align:right;'>"."R$ ".number_format($row["(venda.quantidade*venda.preconeg)"],2,',','.')."</td>";
 echo "</tr>";
 }
 echo "</table>";

@@ -39,7 +39,8 @@ require_once __DIR__ . '/../../config/database.php';
 						
 					?>
 					</select><br><br>
-			Quantidade:<input type="number" name="quantidade" step="0.1" required><br><br>                
+			Quantidade:<input type="number" name="quantidade" step="0.01" required><br><br>
+			Desconto:<input type="number" name="desconto" step="0.01"> em %<br><br>                
 			<input type="submit" value="Cadastrar"><br><br>
 <a href="inicio.php">Voltar para início.</a><br><br><br>
 <a href="vendasporprodutos.html">Ver Vendas por Produtos.</a><br><br><br>
