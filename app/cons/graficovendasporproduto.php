@@ -84,21 +84,15 @@ while($row=$res->fetch(PDO::FETCH_ASSOC)){
 </div>
 <div style="width:50%;float:left">
     <?php
-    $sql="SELECT venda.documento, venda.data, cliente.razao, produto.descricao, (venda.quantidade*venda.preconeg) from venda inner join cliente on venda.idcliente=cliente.idcliente inner join produto on venda.idproduto=produto.idproduto where venda.data between '$datainicial' and '$datafinal' order by produto.descricao";
+    $sql="SELECT produto.descricao, SUM(venda.quantidade*venda.preconeg) from venda inner join produto on venda.idproduto=produto.idproduto where venda.data between '$datainicial' and '$datafinal' group by produto.descricao";
     $res=$con->query($sql);
 echo "<table border='1'>";
-echo "<th>Documento</th>";
-echo "<th>Data</th>";
-echo "<th>Cliente</th>";
 echo "<th>Produto</th>";
 echo "<th>Faturamento</th>";
 while($row=$res->fetch(PDO::FETCH_ASSOC)){
 echo "<tr>";
-echo "<td style='text-align:right;'>".$row["documento"]."</td>";
-echo "<td>".$row["data"]."</td>";
-echo "<td>".$row["razao"]."</td>";
 echo "<td>".$row["descricao"]."</td>";
-echo "<td style='text-align:right;'>"."R$ ".number_format($row["(venda.quantidade*venda.preconeg)"],2,',','.')."</td>";
+echo "<td style='text-align:right;'>"."R$ ".number_format($row["SUM(venda.quantidade*venda.preconeg)"],2,',','.')."</td>";
 echo "</tr>";
 }
 echo "</table>";
