@@ -16,7 +16,6 @@ $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
 foreach($user as $usuario){
 $preco = $usuario["preco"];
 }
-echo "$preco";
 $preconeg = $preco - ($preco*$desconto/100);
 $sql="INSERT INTO venda(data,idcliente,idproduto,quantidade,preconeg) VALUES ('$data','$cliente','$produto','$quantidade','$preconeg')";
     if ($con->query($sql)) {
